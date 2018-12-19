@@ -1,0 +1,17 @@
+    spring:
+        server:
+          port: ${PORT:8080}
+        cloud:
+          gateway:
+            routes:
+               - id: greet
+                 uri:  http://localhost:2222
+                 predicates:
+                 -  Path=/greeting/**
+               - id: hello
+                 uri:  http://localhost:3333
+                 predicates:
+                 -  Path=/hello/**
+
+
+
